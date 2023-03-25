@@ -43,22 +43,22 @@ namespace BenjaminTest
 
 
             string NewsMessage = RadioSarajevo.News("Radio Sarajevo");
-          
+            string BussinesMessage = RadioSarajevo.BussinesMessage();
 
 
 
 
 
 
-            if (!NewsMessage.Contains("ERROR")) 
+            if (!NewsMessage.Contains("ERROR") && (!BussinesMessage.Contains("ERROR"))) 
             {
                 subject = "Passed!!! " + subject;
-                body = "Test je prošao" + "\n" + NewsMessage ;
+                body = "Test je prošao" + "\n" + NewsMessage + BussinesMessage;
             }
             else
             { 
                 subject = "Failed!!! " + subject;
-                body = NewsMessage;
+                body = NewsMessage + BussinesMessage;
             }
 
             Functions.SendEmailAttachment(subject, body);
