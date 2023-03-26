@@ -128,12 +128,20 @@ namespace BenjaminTest
                 System.Threading.Thread.Sleep(5000);
                 IWebElement Economy = driver.FindElement(By.XPath("//*[@id=\"header\"]//div[3]//div[2]//li[1]"));
                 Economy.Click();
-           
-            
-        
+
+                // Kompanije 
+                IWebElement dropdowncompany = driver.FindElement(By.XPath("//*[@id=\"header\"]//div[3]//div[2]"));
+                actions.MoveToElement(dropdownbussines).Perform();
+                WebDriverWait Wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                System.Threading.Thread.Sleep(5000);
+                IWebElement Company = driver.FindElement(By.XPath("//*[@id=\"header\"]//div[3]//div[2]//ul/li[2]/a"));
+                Company.Click();
+
+
+
             }
-        
-        catch(Exception e)
+
+            catch (Exception e)
             {
                 message += "ERORR !!!" + e.Message;
             }
